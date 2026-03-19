@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Songs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #070707, #4e0041,rgb(38, 1, 72)); /* Gradient background */
+            margin: 0;
+            padding: 20px;
+            color: #fff; /* Set text color to white */
+        }
+
+        .song-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+            border-radius: 10px; /* Rounded corners */
+            margin-bottom: 10px; /* Add some spacing between items */
+            background-color: rgba(255, 255, 255, 0.1); /* Light background color */
+        }
+
+        .song-item:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
+        }
+
+        .song-item:last-child {
+            border-bottom: none;
+        }
+
+        .song-link {
+            color: #fff; /* Set text color to white */
+            text-decoration: none;
+            margin-left: 20px; /* Adjusted margin */
+            transition: color 0.3s ease; /* Smooth transition on hover */
+            font-size: 18px; /* Increase font size */
+        }
+
+        .song-link:hover {
+            color: #78bdd4; /* Change color on hover */
+        }
+
+        .song-icon {
+            width: 60px; /* Adjusted size */
+            height: 60px; /* Adjusted size */
+            border-radius: 10%; /* Make it circular */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+            margin-right: 20px; /* Adjusted margin */
+        }
+
+        .song-icon:hover {
+            transform: scale(1.1); /* Scale up slightly on hover */
+        }
+
+        h1 {
+            text-align: center; /* Center align the heading */
+            margin-bottom: 30px; /* Increased margin */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 2px; /* Add letter spacing */
+            font-size: 30px; /* Larger font size */
+        }
+
+        .music-card {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .music-info img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 50%; /* Make it circular */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+        }
+
+        .music-info p {
+            margin: 0;
+            font-size: 16px; /* Adjust font size */
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .music-controls button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 14px; /* Adjust font size */
+            transition: transform 0.3s ease; /* Add a subtle transition */
+        }
+
+        .music-controls button:hover {
+            transform: scale(1.1); /* Scale up slightly on hover */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>English Songs</h1>
+    <div id="songs"></div>
+    <div id="musicCard" class="music-card" style="display: none;">
+        <div class="music-info">
+            <img id="musicIcon" src="" alt="Music Icon">
+            <p id="musicTitle"></p>
+        </div>
+        <div class="music-controls">
+            <button id="pauseButton">Pause</button>
+            <button id="resumeButton">Resume</button> <!-- New button for resuming -->
+            <button id="stopButton">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var songContainer = document.getElementById("songs");
+            var musicCard = document.getElementById("musicCard");
+            var musicIcon = document.getElementById("musicIcon");
+            var musicTitle = document.getElementById("musicTitle");
+            var pauseButton = document.getElementById("pauseButton");
+            var resumeButton = document.getElementById("resumeButton"); // New button variable
+            var stopButton = document.getElementById("stopButton");
+
+            var audioPlayer = new Audio();
+
+            // Simulated song data for 10 songs
+            var songs = [
+                { title: "Believer", link: "MUSIC/Believer(PaglaSongs).mp3", icon: "MUSIC/Believer.webp" },
+                { title: "Dandelions", link: "MUSIC/Dandelions(PagalWorld).mp3", icon: "MUSIC/Dandelions.jpg" },
+                { title: "Dynasty", link: "MUSIC/Dynasty-(Slow-Remix)(PaglaSongs).mp3", icon: "MUSIC/Dynasty.webp" },
+                { title: "Love me like you do", link: "MUSIC/Love-Me-Like-You-DoM.mp3", icon: "MUSIC/Love me like you do.webp" },
+                { title: "Night Changes", link: "MUSIC/Night-ChangesM.mp3", icon: "MUSIC/Night Changes.jpg" },
+                { title: "On My Way", link: "MUSIC/pehlanashaM.mp3", icon: "MUSIC/On my way.webp" },
+                { title: "Senorita", link: "MUSIC/Senorita-Shawn.mp3", icon: "MUSIC/Senorita.jpg" },
+                { title: "Thinking Out Loud", link: "MUSIC/Thinking-Out-Loud.mp3", icon: "MUSIC/X.jpg" },
+                { title: "Who Says", link: "MUSIC/jabtakM.mp3", icon: "MUSIC/Who Says.jpg" },
+                { title: "Memories", link: "MUSIC/Memories - Maroon 5 320-(PagalWorld).mp3", icon: "MUSIC/Memories.webp" }
+            ];
+
+            // Function to render songs
+            function renderSongs() {
+                songs.forEach(function(song) {
+                    var songDiv = document.createElement("div");
+                    songDiv.classList.add("song-item");
+
+                    // Add the icon if available
+                    if (song.icon) {
+                        var iconImg = document.createElement("img");
+                        iconImg.src = song.icon;
+                        iconImg.classList.add("song-icon");
+                        songDiv.appendChild(iconImg);
+                    }
+
+                    var songLink = document.createElement("a");
+                    songLink.href = song.link;
+                    songLink.classList.add("song-link");
+                    songLink.textContent = song.title;
+                    songLink.addEventListener("click", function(event) {
+                        event.preventDefault();
+                        playSong(song);
+                    });
+                    songDiv.appendChild(songLink);
+
+                    songContainer.appendChild(songDiv);
+                });
+            }
+
+            // Play the selected song
+            function playSong(song) {
+                audioPlayer.src = song.link;
+                musicIcon.src = song.icon;
+                musicTitle.textContent = song.title;
+                audioPlayer.play();
+                musicCard.style.display = "flex";
+            }
+
+            // Pause the currently playing song
+            pauseButton.addEventListener("click", function() {
+                if (!audioPlayer.paused) {
+                    audioPlayer.pause();
+                }
+            });
+
+            // Resume the paused song
+            resumeButton.addEventListener("click", function() {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                }
+            });
+
+            // Stop the currently playing song
+            stopButton.addEventListener("click", function() {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
+                musicCard.style.display = "none";
+            });
+
+
+            // Render songs initially
+            renderSongs();
+        });
+    </script>
+</body>
+</html>

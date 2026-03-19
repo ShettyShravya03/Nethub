@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #F06292, #9575CD, #4FC3F7); /* Gradient background with three colors */
+        }
+
+        h1 {
+            text-align: center;
+            color: #413f3f;
+        }
+
+        .option {
+            background-color: rgba(255, 255, 230, 0.7); /* Added transparency to white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .option img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option h2 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .option p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .option a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>ENGLISH MOVIES</h1>
+    <div id="options"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsContainer = document.getElementById("options");
+
+            var hindiMovies = [
+                { title: "Romeo and Juliet", link: "https://youtu.be/SDNK8lT0lxs?si=g2eb2Ke8Oc7cIXSm", image: "NOVELS/Mystery/romeo.jpeg" },
+                { title: "Cinderella", link: "https://youtu.be/aQXR7RthBuc?si=zaFQ0-iBKtaRdYVm", image: "NOVELS/Mystery/cinde.jpeg" },
+                { title: "Wild Child", link: "https://youtu.be/FPAb0BPoaAo?si=j_0sil-zAcJpAJbz", image: "NOVELS/Mystery/wc.jpeg" },
+                { title: "Lost", link: "https://youtu.be/jqd-OHU7OMw?si=dsVn_tSCgh96g30F", image: "NOVELS/Mystery/lost.jpg" },
+                { title: "The Wrong House", link: "https://youtu.be/XimvdthKNas?si=8KIUC4yI9PcfKAne", image: "NOVELS/Mystery/wrong.jpeg" },
+                { title: "Beauty and the Beast", link: "https://youtu.be/yp8PHybyHsc?si=loSHYbpEIeuF-IOA", image: "NOVELS/Mystery/bb.jpg" }
+            ];
+
+            function renderOptions() {
+                hindiMovies.forEach(function(movie) {
+                    var optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    var image = document.createElement("img");
+                    image.src = movie.image;
+                    optionDiv.appendChild(image);
+
+                    var optionContentDiv = document.createElement("div");
+                    optionContentDiv.classList.add("option-content");
+
+                    var titleHeading = document.createElement("h2");
+                    titleHeading.textContent = movie.title;
+                    optionContentDiv.appendChild(titleHeading);
+
+                    var link = document.createElement("a");
+                    link.href = movie.link;
+                    link.textContent = "Watch " + movie.title;
+                    optionContentDiv.appendChild(link);
+
+                    optionDiv.appendChild(optionContentDiv);
+
+                    optionsContainer.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            background-image: url('mov4.jpg'); /* Add your image URL here */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%; /* Adjust the percentage as needed */
+            max-width: 1200px; /* Adjust the maximum width as needed */
+            padding: 20px;
+            background-color: rgba(142, 163, 175, 0.815); /* Add background color with opacity */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 20px; /* Adjust the font size as needed */
+        }
+
+        .language-container:hover {
+            background-color: #eee0eb;
+            border-color: #999;
+        }
+
+        h1 {
+            text-align: center;
+            color: #101010;
+            font-size: 34px; /* Adjust the font size as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MOVIES</h1>
+        <div class="language-container" onclick="goToPage('q1.html')">English</div>
+        <div class="language-container" onclick="goToPage('q2.html')">Hindi</div>
+        <div class="language-container" onclick="goToPage('q3.html')">Kannada</div>
+    </div>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

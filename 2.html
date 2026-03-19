@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nethub.options</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('2.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .option {
+            text-align: center;
+            padding: 40px;
+            background-color: #b8d8f8;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            max-width: 250px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .option:hover {
+            transform: translateY(-5px);
+        }
+
+        .option img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .option p {
+            margin: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .option a {
+            text-decoration: none;
+            color: #09058e;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 38px;
+            z-index: 2;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: beige;
+        }
+    </style>
+</head>
+<body>
+    <h1>UNLEASH UNLIMITED ENTERTAINMENT !!!</h1>
+    <div class="options-container">
+        <div class="option">
+            <a href="p1.html">
+                <img src="m1.jpg" alt="Music">
+                <p>MUSIC</p>
+            </a>
+        </div>
+        <div class="option">
+            <a href="p2.html">
+                <img src="m2.jpg" alt="Movies">
+                <p>MOVIES</p>
+            </a>
+        </div>
+        <div class="option">
+            <a href="p3.html">
+                <img src="m3.png" alt="Novels">
+                <p>NOVELS</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

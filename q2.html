@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #F06292, #9575CD, #4FC3F7); /* Gradient background with three colors */
+        }
+
+        h1 {
+            text-align: center;
+            color: #413f3f;
+        }
+
+        .option {
+            background-color: rgba(255, 255, 230, 0.7); /* Added transparency to white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .option img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option h2 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .option p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .option a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>HINDI MOVIES</h1>
+    <div id="options"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsContainer = document.getElementById("options");
+
+            var hindiMovies = [
+                { title: "Jab We Met", link: "https://youtu.be/jf2gOSORoqU?si=y3rNSiNGP0UkJGjL", image: "NOVELS/Mystery/jwm.jpeg" },
+                { title: "Hungama", link: "https://youtu.be/HVyXEbOWrp4?si=IKD6Zhin4wO1-XCn", image: "NOVELS/Mystery/hun.jpg" },
+                { title: "Kal Ho Na Ho", link: "https://youtu.be/c4tKB0kfhtw?si=1vpoeQ-3Mg9eNDkL", image: "NOVELS/Mystery/nh.jpg" },
+                { title: "Devdas", link: "https://youtu.be/ghqOTUha_m0?si=sckbTv5I37HYM4rM", image: "NOVELS/Mystery/dev.jpg" },
+                { title: "Hum Tumhare Hai Sanam", link: "https://youtu.be/btYIMkogNWo?si=eMyelBWFe0LQZ8q3", image: "NOVELS/Mystery/sanam.jpg" },
+                { title: "Gurudev", link: "https://youtu.be/TzMPMfqtou0?si=hxDcF38sBOM8hE5S", image: "NOVELS/Mystery/guru.jpeg" }
+            ];
+
+            function renderOptions() {
+                hindiMovies.forEach(function(movie) {
+                    var optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    var image = document.createElement("img");
+                    image.src = movie.image;
+                    optionDiv.appendChild(image);
+
+                    var optionContentDiv = document.createElement("div");
+                    optionContentDiv.classList.add("option-content");
+
+                    var titleHeading = document.createElement("h2");
+                    titleHeading.textContent = movie.title;
+                    optionContentDiv.appendChild(titleHeading);
+
+                    var link = document.createElement("a");
+                    link.href = movie.link;
+                    link.textContent = "Watch " + movie.title;
+                    optionContentDiv.appendChild(link);
+
+                    optionDiv.appendChild(optionContentDiv);
+
+                    optionsContainer.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kannada Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #F06292, #9575CD, #4FC3F7); /* Gradient background with three colors */
+        }
+
+        h1 {
+            text-align: center;
+            color: #413f3f;
+        }
+
+        .option {
+            background-color: rgba(255, 255, 230, 0.7); /* Added transparency to white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .option img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option h2 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .option p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .option a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>KANNADA MOVIES</h1>
+    <div id="options"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsContainer = document.getElementById("options");
+
+            var hindiMovies = [
+                { title: "Vastu Prakara", link: "https://youtu.be/mSeSCFKPtk8?si=w5NXoT5w-uKUdxDq", image: "NOVELS/Mystery/vastu.jpg" },
+                { title: "Suryavamsha", link: "https://youtu.be/7UGBwGznSpU?si=miwc6e4lPN70mZS8", image: "NOVELS/Mystery/surya.jpeg" },
+                { title: "Gajakesari", link: "https://youtu.be/XSdl_5wUK8U?si=T5QLPdJyTkD0WbMP", image: "NOVELS/Mystery/gaja.jpeg" },
+                { title: "Googly", link: "https://youtu.be/icvr4vBDLMU?si=afJHSf_oQyG1Xiwt", image: "NOVELS/Mystery/googly.jpg" },
+                { title: "Shravani Subramanya", link: "https://youtu.be/gIGi6axTDeM?si=7hl47Sqo2XV_lAEA", image: "NOVELS/Mystery/ss.jpg" },
+                { title: "Arasu", link: "https://youtu.be/X-unbS7ifso?si=1Zt_2NkubR1cD8om", image: "NOVELS/Mystery/arasu.jpg" }
+            ];
+
+            function renderOptions() {
+                hindiMovies.forEach(function(movie) {
+                    var optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    var image = document.createElement("img");
+                    image.src = movie.image;
+                    optionDiv.appendChild(image);
+
+                    var optionContentDiv = document.createElement("div");
+                    optionContentDiv.classList.add("option-content");
+
+                    var titleHeading = document.createElement("h2");
+                    titleHeading.textContent = movie.title;
+                    optionContentDiv.appendChild(titleHeading);
+
+                    var link = document.createElement("a");
+                    link.href = movie.link;
+                    link.textContent = "Watch " + movie.title;
+                    optionContentDiv.appendChild(link);
+
+                    optionDiv.appendChild(optionContentDiv);
+
+                    optionsContainer.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions();
+        });
+    </script>
+</body>
+</html>

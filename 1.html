@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETHUB.in</title>
+    <style>
+        body {
+            background-image: url('1..jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .red-smoke {
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.5);
+            z-index: 1;
+            animation: moveSmoke 5s infinite alternate;
+        }
+
+        @keyframes moveSmoke {
+            from {
+                transform: translateX(-50px);
+            }
+            to {
+                transform: translateX(50px);
+            }
+        }
+
+        .red-smoke::before,
+        .red-smoke::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 0, 0, 0.5);
+            border-radius: 50%;
+            animation: moveSmokeParticle 3s infinite alternate;
+        }
+
+        .red-smoke::before {
+            left: 0;
+            transform-origin: right;
+        }
+
+        .red-smoke::after {
+            right: 0;
+            transform-origin: left;
+        }
+
+        @keyframes moveSmokeParticle {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            font-size: 90px;
+            color: #c1cef7;
+            font-family: Arial italic;
+            z-index: 2;
+        }
+
+        .content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        p {
+            color: #cac6c6;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #62a0e2;
+        }
+    </style>
+</head>
+<body>
+    <div class="red-smoke"></div>
+    <div class="red-smoke" style="left: auto; right: 0;"></div>
+    <div class="content">
+        <h1>WELCOME TO NETHUB !</h1>
+        <p>Thank you for visiting.</p>
+        <a href="2.html">Click here to proceed</a>
+    </div>
+</body>
+</html>

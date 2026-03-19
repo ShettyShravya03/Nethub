@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romance Novels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg,  #FFA07A , #87CEEB,#FFC0CB); /* Gradient background with three colors */
+        }
+
+        h1 {
+            text-align: center;
+            color: #413f3f;
+        }
+
+        .option {
+            background-color: rgba(255, 255, 230, 0.7); /* Added transparency to white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .option img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option h2 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .option p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .option a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>ROMANCE NOVELS </h1>
+    <div id="options"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsContainer = document.getElementById("options");
+
+            var romanceNovels = [
+                { title: "Pride and Prejudice", author: "Jane Austen", pdfLink: "NOVELS/Romance/Pride and prejuduce.pdf", image: "NOVELS/Romance/pride.jpeg" },
+                { title: "The Notebook", author: "Nicholas Sparks", pdfLink: "NOVELS/Romance/The Notebook - Nicholas Spark.pdf", image: "NOVELS/Romance/note.jpg" },
+                { title: "2 States", author: "Chetan Bhagat", pdfLink: "NOVELS/Romance/2-states_the-story-of-my-marri-chetan-bhagat.pdf", image: "NOVELS/Romance/2 states.jpeg" },
+                { title: "Jane Eyre", author: "Charlotte Bronte", pdfLink: "NOVELS/Romance/jane-eyre.pdf", image: "NOVELS/Romance/jane.png" },
+                { title: "The Fault in Our Stars", author: "John Green", pdfLink: "NOVELS/Romance/The-Fault-in-Our-Stars.pdf", image: "NOVELS/Romance/fault.jpeg" },
+                { title: "The Promise", author: "Nikitha Singh", pdfLink: "NOVELS/Romance/The Promise by Nikita Singh_indianauthornovels.blogspot.in (1).pdf", image: "NOVELS/Romance/promise.jpg" },
+                { title: "Turtles All The Way Down", author: "John Green", pdfLink: "NOVELS/Romance/Turtles_All_the_Way_Down.pdf", image: "NOVELS/Romance/turtles.jpg" },
+                { title: "Wish I Could Tell You", author: "Shravya Bhinder", pdfLink: "NOVELS/Romance/Wish-I-Could-Tell-You.pdf", image: "NOVELS/Romance/wish.webp" },
+                { title: "The Song Of Achilles", author: "Madeline Miller", pdfLink: "NOVELS/Romance/the-song-books.yossr.com).pdf", image: "NOVELS/Romance/Achilles-BOOK-FONT.jpg" },
+                { title: "Something I Never Told You", author: "Shravya Bhinder", pdfLink: "NOVELS/Romance/Something-I-Never-Told-You.pdf", image: "NOVELS/Romance/something.jpg" }
+            ];
+
+            function renderOptions() {
+                romanceNovels.forEach(function(novel) {
+                    var optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    var image = document.createElement("img");
+                    image.src = novel.image;
+                    optionDiv.appendChild(image);
+
+                    var optionContentDiv = document.createElement("div");
+                    optionContentDiv.classList.add("option-content");
+
+                    var titleHeading = document.createElement("h2");
+                    titleHeading.textContent = novel.title;
+                    optionContentDiv.appendChild(titleHeading);
+
+                    var authorParagraph = document.createElement("p");
+                    authorParagraph.textContent = "Author: " + novel.author;
+                    optionContentDiv.appendChild(authorParagraph);
+
+                    var pdfLink = document.createElement("a");
+                    pdfLink.href = novel.pdfLink;
+                    pdfLink.textContent = "Read " + novel.title;
+                    optionContentDiv.appendChild(pdfLink);
+
+                    optionDiv.appendChild(optionContentDiv);
+
+                    optionsContainer.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions();
+        });
+    </script>
+</body>
+</html>

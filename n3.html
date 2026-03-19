@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Novels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg,  #FFA07A , #87CEEB,#FFC0CB); /* Gradient background with three colors */
+        }
+
+        h1 {
+            text-align: center;
+            color: #413f3f;
+        }
+
+        .option {
+            background-color: rgba(255, 255, 230, 0.7); /* Added transparency to white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .option img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option h2 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .option p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .option a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>MYSTERY NOVELS </h1>
+    <div id="options"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsContainer = document.getElementById("options");
+
+            var romanceNovels = [
+                { title: "The Da Vinci Code", author: "Dan Brown", pdfLink: "NOVELS/Mystery/The Da Vinci Code.pdf", image: "NOVELS/Mystery/da vinci.jpeg" },
+                { title: "The Lost Symbol", author: "Dan Brown", pdfLink: "NOVELS/Mystery/The Lost Symbol - Dan Brown.pdf", image: "NOVELS/Mystery/lost.jpeg" },
+                { title: "Deception Point", author: "Dan Brown", pdfLink: "NOVELS/Mystery/2015.461110.Deception-Point.pdf", image: "NOVELS/Mystery/decep.jpeg" },
+                { title: "Inferno", author: "Dan Brown", pdfLink: "NOVELS/Mystery/inferno.pdf", image: "NOVELS/Mystery/infer.jpeg" },
+                { title: "Angels & Demons", author: "Dan Brown", pdfLink: "NOVELS/Mystery/Angels & Demons - Dan Brown.pdf", image: "NOVELS/Mystery/angels and demons.webp" },
+                { title: "The Crossing Places", author: "Elly Griffiths, Ruth Gall", pdfLink: "NOVELS/Mystery/The Crossing Places ( Ruth Gall - Elly Griffiths.pdf", image: "NOVELS/Mystery/cross.webp" },
+                { title: "Moonstone", author: "Wilkie Collins", pdfLink: "NOVELS/Mystery/moonstone00coll.pdf", image: "NOVELS/Mystery/moon.jpeg" },
+                { title: "A Song for the Dark Times", author: "Ian Rankin", pdfLink: "NOVELS/Mystery/a song for the dark times.pdf", image: "NOVELS/Mystery/song.jpeg" },
+                { title: "The Girl on the Train", author: "Paula Hawkins", pdfLink: "NOVELS/Mystery/The_Girl_on_the_Train_-_Paula_Hawkins.pdf", image: "NOVELS/Mystery/train.jpg" },
+                { title: "The Cuckoo's Calling", author: "Robert Galbraith", pdfLink: "NOVELS/Mystery/the-cuckoo_s-calling-robert-galbraith-j-k-rowling.pdf", image: "NOVELS/Mystery/cuckoo.jpeg" }
+            ];
+
+            function renderOptions() {
+                romanceNovels.forEach(function(novel) {
+                    var optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    var image = document.createElement("img");
+                    image.src = novel.image;
+                    optionDiv.appendChild(image);
+
+                    var optionContentDiv = document.createElement("div");
+                    optionContentDiv.classList.add("option-content");
+
+                    var titleHeading = document.createElement("h2");
+                    titleHeading.textContent = novel.title;
+                    optionContentDiv.appendChild(titleHeading);
+
+                    var authorParagraph = document.createElement("p");
+                    authorParagraph.textContent = "Author: " + novel.author;
+                    optionContentDiv.appendChild(authorParagraph);
+
+                    var pdfLink = document.createElement("a");
+                    pdfLink.href = novel.pdfLink;
+                    pdfLink.textContent = "Read " + novel.title;
+                    optionContentDiv.appendChild(pdfLink);
+
+                    optionDiv.appendChild(optionContentDiv);
+
+                    optionsContainer.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions();
+        });
+    </script>
+</body>
+</html>

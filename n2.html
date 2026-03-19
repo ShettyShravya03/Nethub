@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Novels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg,  #FFA07A , #87CEEB,#FFC0CB); /* Gradient background with three colors */
+        }
+
+        h1 {
+            text-align: center;
+            color: #413f3f;
+        }
+
+        .option {
+            background-color: rgba(255, 255, 230, 0.7); /* Added transparency to white background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .option img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option h2 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .option p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .option a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .option a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>ADVENTURE NOVELS </h1>
+    <div id="options"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var optionsContainer = document.getElementById("options");
+
+            var romanceNovels = [
+                { title: "Harry Potter and the Sorcerers Stone", author: "JK Rowling", pdfLink: "NOVELS/Adventure/Harry Potter and the Sorcerers Stone.pdf", image: "NOVELS/Adventure/1.jpeg" },
+                { title: "Harry Potter and the Chamber of Secrets", author: "JK Rowling", pdfLink: "NOVELS/Adventure/Harry-Potter-and-the-Chamber-of-Secrets.pdf", image: "NOVELS/Adventure/2.jpeg" },
+                { title: "Harry Potter and the Prisoner of Azkaban", author: "JK Rowling", pdfLink: "NOVELS/Adventure/Hugo 2000 Nominee Novel - J. K. Rowling - Harry Potter and the Prisoner of Azkaban.pdf", image: "NOVELS/Adventure/3.jpg" },
+                { title: "Harry Potter and the Goblet of Fire", author: "JK Rowling", pdfLink: "NOVELS/Adventure/4_harry_potter_and_the_goblet_of_fire.pdf", image: "NOVELS/Adventure/4.jpeg" },
+                { title: "Harry Potter and the Order of the Phoenix", author: "JK Rowling", pdfLink: "NOVELS/Adventure/05_Harry_Potter_and_the_Order_of_the_Phoenix_by_J.K._Rowling.pdf", image: "NOVELS/Adventure/5.jpeg" },
+                { title: "Harry Potter and the Half Blood Prince", author: "JK Rowling", pdfLink: "NOVELS/Adventure/Harry-Potter-and-the-Half-Blood-Prince-www.libpdf.blog.ir.pdf", image: "NOVELS/Adventure/6.jpeg" },
+                { title: "Harry Potter And The Deathly Hallows", author: "JK Rowling", pdfLink: "NOVELS/Adventure/(Book 7) Harry Potter And The Deathly Hallows.pdf", image: "NOVELS/Adventure/7.jpg" },
+                { title: "Adventures of Huckleberry Finn", author: "Mark Twain", pdfLink: "NOVELS/Adventure/HuckFinn.pdf", image: "NOVELS/Adventure/finn.jpg" },
+                { title: "Kim", author: "Rudyard Kipling", pdfLink: "NOVELS/Adventure/Kim.pdf", image: "NOVELS/Adventure/kim-87.jpg" },
+                { title: "Gullivers Travels", author: "Jonathan Swift", pdfLink: "NOVELS/Adventure/gullivers-travels.pdf", image: "NOVELS/Adventure/gully.jpg" }
+            ];
+
+            function renderOptions() {
+                romanceNovels.forEach(function(novel) {
+                    var optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    var image = document.createElement("img");
+                    image.src = novel.image;
+                    optionDiv.appendChild(image);
+
+                    var optionContentDiv = document.createElement("div");
+                    optionContentDiv.classList.add("option-content");
+
+                    var titleHeading = document.createElement("h2");
+                    titleHeading.textContent = novel.title;
+                    optionContentDiv.appendChild(titleHeading);
+
+                    var authorParagraph = document.createElement("p");
+                    authorParagraph.textContent = "Author: " + novel.author;
+                    optionContentDiv.appendChild(authorParagraph);
+
+                    var pdfLink = document.createElement("a");
+                    pdfLink.href = novel.pdfLink;
+                    pdfLink.textContent = "Read " + novel.title;
+                    optionContentDiv.appendChild(pdfLink);
+
+                    optionDiv.appendChild(optionContentDiv);
+
+                    optionsContainer.appendChild(optionDiv);
+                });
+            }
+
+            renderOptions();
+        });
+    </script>
+</body>
+</html>
